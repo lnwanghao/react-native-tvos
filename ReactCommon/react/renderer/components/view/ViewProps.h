@@ -65,6 +65,11 @@ class ViewProps : public YogaStylableProps, public AccessibilityProps {
 
   bool removeClippedSubviews{false};
 
+#if TARGET_OS_TV
+  bool isTVSelectable{false};
+  TVParallaxProperties tvParallaxProperties;
+#endif
+
   Float elevation{}; /* Android-only */
 
 #pragma mark - Convenience Methods

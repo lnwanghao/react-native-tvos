@@ -24,6 +24,20 @@ ViewProps::ViewProps(
     RawProps const &rawProps)
     : YogaStylableProps(context, sourceProps, rawProps),
       AccessibilityProps(context, sourceProps, rawProps),
+#if TARGET_OS_TV
+      isTVSelectable(convertRawProp(
+          context,
+          rawProps,
+          "isTVSelectable",
+          sourceProps.isTVSelectable,
+          (Boolean)false)),
+      tvParallaxProperties(convertRawProp(
+          context,
+          rawProps,
+          "tvParallaxProperties",
+          sourceProps.tvParallaxProperties,
+          {})),
+#endif
       opacity(convertRawProp(
           context,
           rawProps,
