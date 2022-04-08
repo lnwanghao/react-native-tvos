@@ -53,7 +53,11 @@ const Platform = {
     return false;
   },
   get isTV(): boolean {
-    return this.constants.uiMode === 'tv';
+    return (
+      this.constants.uiMode === 'tv' ||
+      (this.constants.uiMode === 'normal' &&
+        this.constants.Model.startsWith('MiTV'))
+    );
   },
   select: <A, N, D>(spec: PlatformSelectSpec<A, N, D>): A | N | D =>
     'android' in spec
