@@ -55,8 +55,9 @@ const Platform = {
   get isTV(): boolean {
     return (
       this.constants.uiMode === 'tv' ||
-      (this.constants.uiMode === 'normal' &&
-        this.constants.Model.startsWith('MiTV'))
+      ((this.constants.uiMode === 'normal' && this.constants.Model.startsWith('MiTV')) ||
+       (this.constants.uiMode === 'normal' && this.constants.Model.startsWith('MiBOX'))
+      )
     );
   },
   select: <A, N, D>(spec: PlatformSelectSpec<A, N, D>): A | N | D =>
